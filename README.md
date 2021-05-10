@@ -1,6 +1,8 @@
 # ShiftSmoothedAttributions
 ### Ian Nielsen Systems Devices and Algorithms in Bioinformatics Final Project Spring 2021
 
+This documentation is split into two parts, **Quickstart** and **Training**. If you simply wish to recreate the results using the precalculated attribution maps then you will want to begin with **Quickstart**. If you would like to recreate all experiments from scratch, including formatting the dataset, training the model and generating attribution maps then you will want to begin from **Training**.
+
 ## Quickstart:
 
 ### Codon Detection Task
