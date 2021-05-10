@@ -42,7 +42,7 @@ To recreate Experiment 2 (Are the Areas of Interest Being Highlighted?) Run the 
 
 ![image](https://user-images.githubusercontent.com/36169018/117705020-86866780-b199-11eb-8538-29cb9df8de3c.png)
 
-2. From here click Send To -> File -> Create File.
+2. From here click Send To -> File -> Create File, then Save File.
 
 ![image](https://user-images.githubusercontent.com/36169018/117705297-e2e98700-b199-11eb-9b79-08450de4711a.png)
 
@@ -61,3 +61,40 @@ To recreate Experiment 2 (Are the Areas of Interest Being Highlighted?) Run the 
 ``python getattributions_motif.py``
 
 7. Follow the steps for the Quickstart for the Codon Detection Task to run experiments using newly generated attribution maps.
+
+### Human/Goldfish Classification Task
+
+1. Go to https://www.ncbi.nlm.nih.gov/nuccore/CM000663.2 and click on FASTA.
+
+![image](https://user-images.githubusercontent.com/36169018/117705020-86866780-b199-11eb-8538-29cb9df8de3c.png)
+
+2. From here click Send To -> File -> Create File, then Save File.
+
+![image](https://user-images.githubusercontent.com/36169018/117705297-e2e98700-b199-11eb-9b79-08450de4711a.png)
+
+3. Once the file is finished downloading rename it to ``human_genome_c1.txt`` and place it in the ``Human_Goldfish_Classification\raw_data`` folder.
+
+**Steps 4 through 6 are a repeat of steps 1 through 3 expect that we are downloading the goldfish genome this time rather than human**
+4. Go to https://www.ncbi.nlm.nih.gov/nuccore/CM010432.1 and click on FASTA.
+
+![image](https://user-images.githubusercontent.com/36169018/117706664-969f4680-b19b-11eb-8cf7-6e62d3b62b69.png)
+
+5. From here click Send To -> File -> Create File, then Save File.
+
+![image](https://user-images.githubusercontent.com/36169018/117707281-61472880-b19c-11eb-9b12-a08c15f87b3e.png)
+
+6. Once the file is finished downloading rename it to ``goldfish_genome_c1.txt`` and place it in the ``Human_Goldfish_Classification\raw_data`` folder.
+
+7. Now that the data is downloaded move to project repository.
+
+``cd ShiftSmoothedAttributions\Human_Goldfish_Classification``
+
+8. Run dataset formatter until you are satisfied with the size of the dataset.
+
+``python generate_dataset.py``
+
+9. Generate attribution maps using trained model.
+
+``python getattributions.py``
+
+10. Follow the steps for the Quickstart for the Human/Goldfish Classification Task to run experiments using newly generated attribution maps.
