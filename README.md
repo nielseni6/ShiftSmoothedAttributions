@@ -76,7 +76,7 @@ To recreate Experiment 2 (Are the Areas of Interest Being Highlighted?) Run the 
 
 3. Once the file is finished downloading rename it to ``human_genome_c1.txt`` and place it in the ``Human_Goldfish_Classification\raw_data`` folder.
 
-**Steps 4 through 6 are a repeat of steps 1 through 3 expect that we are downloading the goldfish genome this time rather than human**
+**Steps 4 through 6 are a repeat of steps 1 through 3 except that we are downloading the goldfish genome this time rather than human.**
 4. Go to https://www.ncbi.nlm.nih.gov/nuccore/CM010432.1 and click on FASTA.
 
 ![image](https://user-images.githubusercontent.com/36169018/117706664-969f4680-b19b-11eb-8cf7-6e62d3b62b69.png)
