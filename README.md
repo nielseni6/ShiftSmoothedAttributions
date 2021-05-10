@@ -62,7 +62,7 @@ To recreate Experiment 2 (Are the Areas of Interest Being Highlighted?) Run the 
 
 ``python getattributions_motif.py``
 
-7. Follow the steps for the Quickstart for the Codon Detection Task to run experiments using newly generated attribution maps.
+7. Follow the steps for the **Quickstart** for the **Codon Detection Task** to run experiments using newly generated attribution maps.
 
 ### Human/Goldfish Classification Task
 
@@ -99,4 +99,4 @@ To recreate Experiment 2 (Are the Areas of Interest Being Highlighted?) Run the 
 
 ``python getattributions.py``
 
-10. Follow the steps for the Quickstart for the Human/Goldfish Classification Task to run experiments using newly generated attribution maps.
+10. Follow the steps for the **Quickstart** for the **Human/Goldfish Classification Task** to run experiments using newly generated attribution maps.
