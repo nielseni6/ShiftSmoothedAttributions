@@ -3,6 +3,8 @@
 
 This documentation is split into two parts, **Quickstart** and **Training**. If you simply wish to recreate the results using the precalculated attribution maps then you will want to begin with **Quickstart**. If you would like to recreate all experiments from scratch, including formatting the dataset, training the model and generating attribution maps then you will want to begin from **Training**.
 
+This repo uses the pyseqlogo package to display attributions. If you are getting errors with this package please download the pyseqlogo files from their github (https://github.com/saketkc/pyseqlogo) and place a copy of the pyseqlogo folder into the ``ShiftSmoothedAttributions\Codon_Detection`` and ``ShiftSmoothedAttributions\Human_Goldfish_Classification`` folders.
+
 ## Quickstart:
 
 ### Codon Detection Task
