@@ -1,4 +1,8 @@
-# -*- coding: utf-8 -*-
+"""
+Created on Mon May  3 2021
+
+@author: ianni
+"""
 
 import torch
 from torchvision import transforms
@@ -21,17 +25,14 @@ valset = datasets.ImageFolder(root='data_motif', transform=transform_test)
 remainder = int(len(trainset) - (int(0.9 * len(trainset)) + int(0.1 * len(trainset))))
 trainset, _ = torch.utils.data.random_split(trainset, [int(0.9 * len(trainset)), int(0.1 * len(trainset)) + remainder])
 _, valset = torch.utils.data.random_split(valset, [int(0.9 * len(valset)), int(0.1 * len(valset)) + remainder])
-#testset, valset = torch.utils.data.random_split(testset, [int(0.9 * len(testset)), int(0.1 * len(testset))])
 
 train_dataloader = torch.utils.data.DataLoader(trainset, batch_size=256, shuffle=True)
 val_dataloader = torch.utils.data.DataLoader(valset, batch_size=128, shuffle=False)
-#test_dataloader = torch.utils.data.DataLoader(testset, batch_size=32, shuffle=False)
 
 classifications = ["ATG", "TAA", "ATG and TAA", "None"]
 
 print("Training dataset size: ", len(trainset))
 print("Validation dataset size: ", len(valset))
-#print("Testing dataset size: ", len(testset))
 
 model = models.resnet18(pretrained=False)
 ## Modify ResNet number of outputs to match task at hand ##
@@ -58,8 +59,6 @@ for epoch in range(no_epochs):
     # training
     for itr, (image, label) in enumerate(train_dataloader):
         
-#        image = torch.mean(image, dim=1, keepdim=True)
-        
         if (torch.cuda.is_available()):
             image = image.cuda()
             label = label.cuda()
@@ -85,8 +84,6 @@ for epoch in range(no_epochs):
     model.eval()
     total = 0
     for itr, (image, label) in enumerate(val_dataloader):
-        
-#        image = torch.mean(image, dim=1, keepdim=True)
         
         if (torch.cuda.is_available()):
             image = image.cuda()
@@ -132,7 +129,6 @@ plt.legend(loc='upper right')
 plt.show()
 
 fig=plt.figure(figsize=(20, 10))
-#plt.plot(np.arange(1, no_epochs+1), train_loss, label="Train loss")
 plt.plot(np.arange(1, no_epochs+1), val_acc, label="Validation Accuracy")
 plt.xlabel('Accuracy')
 plt.ylabel('Epochs')

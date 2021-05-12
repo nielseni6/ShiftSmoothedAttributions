@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
-
-# -*- coding: utf-8 -*-
 """
-Created on Mon May  3 19:27:48 2021
+Created on Mon May  3 2021
 
 @author: ianni
 """
@@ -10,7 +7,6 @@ Created on Mon May  3 19:27:48 2021
 from pyseqlogo.pyseqlogo import draw_logo, setup_axis
 
 from PIL import Image
-import torch
 import numpy as np
 import os.path
 import matplotlib.pyplot as plt
@@ -20,15 +16,6 @@ def NormalizeNumpy(image_3d):
     image_2d = image_3d - vmin
     vmax = np.max(image_2d)
     return (image_2d / vmax)
-
-def imshow(img):
-    img = img     # unnormalize
-    npimg = img.detach().numpy()
-    tpimg = np.transpose(npimg, (1, 2, 0))
-    plt.imshow(tpimg)
-    plt.show()
-    #    plt.savefig("imshowfig.png")
-
 
 merge = 1
 num = 0
@@ -71,7 +58,7 @@ for num in range(70, 100, 1):
         ## Display Vanilla Gradient ##
         img_attribution = np.array(Image.open('attributions/all/' + str(num) + '.png'))
         img_attribution = np.mean(img_attribution, axis=2)
-#        img_attribution = NormalizeNumpy(img_attribution*img_attribution)
+#        img_attribution = NormalizeNumpy(img_attribution*img_attribution) # Uncomment to use squared attribution maps
         img_attribution = NormalizeNumpy(img_attribution)
         
         index = int(len(img_attribution[0])/2)
@@ -99,7 +86,7 @@ for num in range(70, 100, 1):
         ## Display Shift Smooth ##
         img_attribution_shsm = np.array(Image.open('attributions/all/' + str(num) + 'shsm.png'))
         img_attribution_shsm = np.mean(img_attribution_shsm, axis=2)
-#        img_attribution_shsm = NormalizeNumpy(img_attribution_shsm*img_attribution_shsm)
+#        img_attribution_shsm = NormalizeNumpy(img_attribution_shsm*img_attribution_shsm) # Uncomment to use squared attribution maps
         img_attribution_shsm = NormalizeNumpy(img_attribution_shsm)
         
         index = int(len(img_attribution_shsm[0])/2)

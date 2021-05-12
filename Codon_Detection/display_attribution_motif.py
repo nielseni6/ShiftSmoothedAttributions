@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Thu Apr 29 2021
 
@@ -6,11 +5,8 @@ Created on Thu Apr 29 2021
 """
 
 from PIL import Image
-import torch
 import numpy as np
-import os.path
 from PIL import ImageDraw, ImageFont 
-import matplotlib.pyplot as plt
 
 def NormalizeNumpy(image_3d):
     vmin = np.min(image_3d)
@@ -18,15 +14,6 @@ def NormalizeNumpy(image_3d):
     vmax = np.max(image_2d)
     return (image_2d / vmax)
 
-def imshow(img):
-    img = img     # unnormalize
-    npimg = img.detach().numpy()
-    tpimg = np.transpose(npimg, (1, 2, 0))
-    plt.imshow(tpimg)
-    plt.show()
-    #    plt.savefig("imshowfig.png")
-
-#genome = 'goldfish' 
 genome = 'human'
 merge = 1
 num = 4
@@ -36,13 +23,6 @@ data = np.loadtxt("raw_data/" + genome + "_genome_c1.txt", delimiter="\n", dtype
 
 
 dat = []
-#for i, seq in enumerate(data[0:1000]):
-#    if i % merge == 0:
-#        dat.append(seq)
-#    else:
-#        dat[int(i/merge)] = dat[int(i/merge)] + seq
-#
-#dat = [x for x in dat if "N" not in x]
 
 for i in range(20):
     dat.append('')

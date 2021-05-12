@@ -1,12 +1,14 @@
-# -*- coding: utf-8 -*-
+"""
+Created on Mon May  3 2021
+
+@author: ianni
+"""
 
 import torch
 from torchvision import transforms
 from torchvision.utils import save_image
 import torchvision.datasets as datasets
-import matplotlib.pyplot as plt
 import numpy as np
-from PIL import Image
 import torchvision.models as models
 import os
 
@@ -22,9 +24,7 @@ def GetAttShiftSmooth(
         x_shifted[0][0][0] = shift(x_np[0][0][0], i - nshiftlr)
         x_shifted[0][1][0] = shift(x_np[0][1][0], i - nshiftlr)
         x_shifted[0][2][0] = shift(x_np[0][2][0], i - nshiftlr)
-        x_plus_noise = x_shifted
-        x_noise_tensor = torch.tensor(x_plus_noise, dtype = torch.float32)
-#        x_noise_tensor = torch.tensor(x_shifted, dtype = torch.float32)
+        x_noise_tensor = torch.tensor(x_shifted, dtype = torch.float32)
         
         gradient = returnGradPred(x_noise_tensor.cuda())
         gradient[0][0][0][0] = torch.tensor(shift(gradient[0][0][0][0].detach().cpu().numpy(), nshiftlr - i))
@@ -49,12 +49,6 @@ def shift(arr, num):
     else:
         result[:] = arr
     return result
-
-def NormalizeNumpy(image_3d):
-    vmin = np.min(image_3d)
-    image_2d = image_3d - vmin
-    vmax = np.max(image_2d)
-    return (image_2d / vmax)
 
 def NormalizeTensor(image_3d):
   vmin = torch.min(image_3d)
@@ -89,23 +83,18 @@ transform = transforms.Compose([
             ])
 
 trainset = datasets.ImageFolder(root='data_motif', transform=transform)
-#valset = datasets.ImageFolder(root='data', transform=transform)
 
 remainder = int(len(trainset) - (int(0.9 * len(trainset)) + int(0.1 * len(trainset))))
 trainset, valset = torch.utils.data.random_split(trainset, [int(0.9 * len(trainset)), int(0.1 * len(trainset)) + remainder])
-#testset, valset = torch.utils.data.random_split(testset, [int(0.9 * len(testset)), int(0.1 * len(testset))])
 
 train_dataloader = torch.utils.data.DataLoader(trainset, batch_size=1, shuffle=False)
 val_dataloader = torch.utils.data.DataLoader(valset, batch_size=1, shuffle=False)
-#test_dataloader = torch.utils.data.DataLoader(testset, batch_size=32, shuffle=False)
 
 print("Training dataset size: ", len(trainset))
 print("Validation dataset size: ", len(valset))
-#print("Testing dataset size: ", len(testset))
 
 classifications = ["ATG", "TAA", "ATG and TAA", "None"]
 
-#model = Model()
 model = models.resnet18(pretrained=False)
 ## Modify ResNet number of outputs to match task at hand ##
 num_ftrs = model.fc.in_features
