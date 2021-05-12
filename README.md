@@ -9,13 +9,13 @@ Clone repo.
 
 Make sure to have the following required libraries if you do not already.
 
-``Python 3.6
-PyTorch 1.2.0
-torchvision 0.4.0
-matplotlib 3.2.0
-numpy 1.16.3
-Pillow 6.0.0
-pyseqlogo``
+>Python 3.6
+>PyTorch 1.2.0
+>torchvision 0.4.0
+>matplotlib 3.2.0
+>numpy 1.16.3
+>Pillow 6.0.0
+>pyseqlogo
 
 If you are getting errors with ``pyseqlogo`` please download the pyseqlogo files from their github (https://github.com/saketkc/pyseqlogo) and place a copy of the pyseqlogo folder into the ``ShiftSmoothedAttributions\Codon_Detection`` and ``ShiftSmoothedAttributions\Human_Goldfish_Classification`` folders.
 
