@@ -7,11 +7,21 @@ Clone repo.
 
 ``git clone https://github.com/nielseni6/ShiftSmoothedAttributions.git``
 
+Make sure to have the following required libraries if you do not already.
+
+``Python 3.6
+PyTorch 1.2.0
+torchvision 0.4.0
+matplotlib 3.2.0
+numpy 1.16.3
+Pillow 6.0.0
+pyseqlogo``
+
+If you are getting errors with ``pyseqlogo`` please download the pyseqlogo files from their github (https://github.com/saketkc/pyseqlogo) and place a copy of the pyseqlogo folder into the ``ShiftSmoothedAttributions\Codon_Detection`` and ``ShiftSmoothedAttributions\Human_Goldfish_Classification`` folders.
+
 ## Getting Started
 
 This documentation is split into two parts, **Quickstart** and **Training**. If you simply wish to recreate the results using the precalculated attribution maps then you will want to begin with **Quickstart**. If you would like to recreate all experiments from scratch, including formatting the dataset, training the model and generating attribution maps then you will want to begin from **Training**.
-
-This repo uses the pyseqlogo package to display attributions. If you are getting errors with this package please download the pyseqlogo files from their github (https://github.com/saketkc/pyseqlogo) and place a copy of the pyseqlogo folder into the ``ShiftSmoothedAttributions\Codon_Detection`` and ``ShiftSmoothedAttributions\Human_Goldfish_Classification`` folders.
 
 ## Quickstart:
 
