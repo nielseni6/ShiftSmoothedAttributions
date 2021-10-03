@@ -1,7 +1,7 @@
 # ShiftSmoothedAttributions
 #### Ian Nielsen Systems Devices and Algorithms in Bioinformatics Final Project Spring 2021
 
-Read more about methodology and results here: <a href="https://github.com/nielseni6/ShiftSmoothedAttributions/blob/main/Locally%20Smoothed%20Attribution%20for%20Genomic%20CNNs.pdf" target="_blank">PDF.</a>
+Read more about methodology and results here: <a href="https://nielseni6.github.io/ShiftSmoothedAttributions/blob/main/Locally%20Smoothed%20Attribution%20for%20Genomic%20CNNs.pdf" target="_blank">PDF.</a>
 
 ## Install
 
